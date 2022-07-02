@@ -1,4 +1,4 @@
-# NodeJS-The-Complete-Guide-MVC-REST-APIs-GraphQL-Deno--by-Maximilian-Schwarzmuller
+# NodeJS-The-Complete-Guide-MVC-REST-APIs-GraphQL-Deno-by-Maximilian-Schwarzmuller
 🔥Master Node JS & Deno.js, build REST APIs with Node.js, GraphQL APIs, add Authentication, use MongoDB, SQL & much more!🔥
 
  1.  Introduction
