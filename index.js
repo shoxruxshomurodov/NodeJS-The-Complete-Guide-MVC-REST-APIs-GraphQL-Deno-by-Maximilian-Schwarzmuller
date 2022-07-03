@@ -1,51 +1,179 @@
-// 📒📒📒 Introduction 📒📒📒
+// 📒📒📒  JavaScript - A Quick Refresher 📒📒📒
 
-// 🔥🔥🔥 What is Node.js ? 🔥🔥🔥
+// 🔥🔥🔥 JavaScript in a Nutshell 🔥🔥🔥
 
-// Node.js is a JavaScript Runtime - "JavaScript on the Server"
-// Node.js use V8(Google) engine
-// V8 compiles to "Machine Code"
-// V8 written in C++
+//JavaScript Summary
 
-// 🔥🔥🔥 Install Node.js 🔥🔥🔥
+// ☝️Weakly Typed Language =>
+// 1. No explicit type assignment
+// 2.Data types can be switched dynamically
 
-// go to => nodejs.org
-// LTS = Long Term Support
-// node
+// ☝️Object-Oriented Language =>
+// 1. Data can be organized in logical objects
+// 2. Primitive and reference types
 
-console.log("Hello from Node.js");
+// ☝️Versatile Language
+// 1. Runs in browser & directly on a PC/server
+// 2. Can perform a broad variety of tasks
 
-const fs = require("fs");
+// 🔥🔥🔥 Refreshing the Core Syntax 🔥🔥🔥
 
-fs.writeFileSync("hello.txt", "Hello from Node.js");
+var name = "Shoxrux";
+var age = 23;
+var hasHobbies = true;
+function summarizeUser(userName, userAge, userHasHobbies) {
+  return (
+    "Name is " +
+    userName +
+    ", " +
+    "age is " +
+    userAge +
+    " and the user has hobbies: " +
+    userHasHobbies
+  );
+}
 
-// 🔥🔥🔥 Understanding the Role & Usage of Node.js 🔥🔥🔥
+console.log(summarizeUser(name, age, hasHobbies));
 
-// JavaScript on the Server
+// 🔥🔥🔥 let & const  🔥🔥🔥
 
-// => request Server
-//Server => Database
-//Server => Authentication
-//Server => Input Validation
-//Server => Your Business Logic
+// let block scope
+{
+  let firstName = "Shoxrux";
+}
+// console.log(firstName); cannot use outside block
 
-// <= response "HTML Page"
+// const can't  change
 
-// Side note: You're not limited to the Server !🔥🔥🔥
+const isProgrammer = true;
+// isProgrammer = false; // We can't change value
 
-// Node.js is a JavaScript Runtime
-// You can use it for more than just Server-side Code
-// Utility Scripts, Build Tools, ...
+// 🔥🔥🔥 Understanding Arrow Functions  🔥🔥🔥
 
-// Node.js Role (in Web Development)🔥🔥🔥
+const summarizeUserArrow = (userName, userAge, userHasHobbies) => {
+  return (
+    "Name is " +
+    userName +
+    ", " +
+    "age is " +
+    userAge +
+    " and the user has hobbies: " +
+    userHasHobbies +
+    " inArrowFunc"
+  );
+};
+console.log(summarizeUserArrow(name, age, hasHobbies));
 
-// Run Server => Create Server & Listen to Incoming Requests
-// Business Logic => Handle Requests, Validate Input, Connect to Database
-// Responses => Return Responses (Rendered HTML, JSON, ...)
+// 🔥🔥🔥 Working with Objects, Properties & Methods 🔥🔥🔥
 
-// 🔥🔥🔥 Working with the REPL vs Using Files 🔥🔥🔥
+// const person = {
+//   name: "Shoxrux",
+//   age: 23,
+//   greet: function () {
+//     console.log(`Hello, I am ${this.name}`);
+//   },
+// };
 
-// R > Read ===> Read  User Input
-// E > Eval ===> Evaluate User Input
-// P > Print ===> Print Output (Result)
-// L > Loop ===> Wait for new Input
+// const person = {
+//   name: "Shoxrux",
+//   age: 23,
+//   greet() {
+//     console.log(`Hello, I am ${this.name}`);
+//   },
+// };
+
+const person = {
+  name: "Shoxrux",
+  age: 23,
+  greet: () => {
+    console.log(`Hello, I am ${name}`);
+  },
+};
+
+console.log(person);
+person.greet();
+
+// 🔥🔥🔥 Arrays & Array Methods 🔥🔥🔥
+
+const hobbies = ["Sports", "Dancing", "Jogging"];
+
+// for (let hobby of hobbies) {
+//   console.log(hobby);
+// }
+
+hobbiesMap = hobbies.map((hobby) => {
+  return "Hobby: " + hobby;
+});
+
+console.log(hobbies);
+console.log(hobbiesMap);
+
+hobbies.push("Programming");
+console.log(hobbies);
+
+// 🔥🔥🔥 Understanding Spread & Rest Operators 🔥🔥🔥
+item = "Gaming";
+const copiedArray = [...hobbies, item];
+console.log(copiedArray);
+
+const copiedPerson = { ...person };
+console.log(copiedPerson);
+
+// const toArray = (arg1, arg2, arg3) => {
+//   return [arg1, arg2, arg3];
+// };
+
+const toArray = (...args) => {
+  return args;
+};
+
+console.log(toArray(1, 2, 3));
+
+// 🔥🔥🔥 Destructuring 🔥🔥🔥
+
+const personDestruct = {
+  name: "Shoxrux",
+  age: 23,
+  greet() {
+    console.log(`Hello, I am ${this.name}`);
+  },
+};
+
+printName = (person) => {
+  console.log(person.name);
+};
+printName(personDestruct);
+
+printNameWithDestructuring = ({ name }) => {
+  console.log(name);
+};
+printName(personDestruct);
+
+const hobbiesArr = ["Sports", "Dancing", "Jogging"];
+const [hobby1, hobby2] = hobbiesArr;
+console.log(hobby1, hobby2);
+
+// 🔥🔥🔥 Async Code & Promises 🔥🔥🔥
+
+const fetchData = () => {
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Done!");
+    }, 1500);
+  });
+  return promise;
+};
+setTimeout(() => {
+  console.log("Timer is done");
+  fetchData()
+    .then((text) => {
+      console.log(text);
+      return fetchData();
+    })
+    .then((text2) => {
+      console.log(text2);
+    });
+}, 2000);
+
+console.log("Hello");
+console.log("Hi");
